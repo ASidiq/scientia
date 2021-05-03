@@ -1,6 +1,4 @@
-import { Component, OnInit, ElementRef, HostListener, AfterViewInit, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { MdbTableDirective, MdbTablePaginationComponent } from 'angular-bootstrap-md';
-import { HttpClient } from "@angular/common/http";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-nav-menu',
