@@ -1,0 +1,114 @@
+<!-- <p>create-book works!</p>
+<section class="sample-app-content">
+    <h1>Reactive Form Example:</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmitModelBased()">
+        <p>
+            <label>First Name:</label>
+            <input type="text" formControlName="firstName">
+        </p>
+        <p>
+            <label>Password:</label>
+            <input type="password" formControlName="password">
+        </p>
+        <p>
+            First Name: {{ form.value.firstName }},
+            Password: {{ form.value.password }}
+        </p>
+        <p>
+            <button type="submit" [disabled]="!form.valid">Submit</button>
+        </p>
+    </form>
+</section> -->
+<form [formGroup]="form" (ngSubmit)="onSubmitAddBook()" style="width: 700px; margin:0 auto">
+
+    <!-- Text input -->
+    <div class="form-outline mb-4">
+        <input type="text" id="title" class="form-control" placeholder="Book Title" formControlName="title" />
+        <label class="form-label" for="title" required>Title</label>
+    </div>
+
+    <!-- Text input -->
+    <div class="form-outline mb-4">
+        <input type="text" id="authorName" class="form-control" placeholder="Author's Name"
+            formControlName="authorName" />
+        <label class="form-label" for="authorName" required>Name</label>
+    </div>
+
+    <!-- Text input -->
+    <div class="form-outline mb-4">
+        <input type="url" id="bookCoverUrl" class="form-control" placeholder="Link to Book Cover"
+            formControlName="bookCoverUrl" />
+        <label class="form-label" for="bookCoverUrl" required>Book Cover URL</label>
+    </div>
+    <!-- Text input -->
+    <div class="form-outline mb-4">
+        <input type="url" id="authorImageUrl" class="form-control" placeholder="Author's Profile Picture"
+            formControlName="authorImageUrl" />
+        <label class="form-label" for="authorImageUrl" required>Author's Profile Picture URL</label>
+    </div>
+    <!-- 3 column grid layout with text inputs for the book type, genre and publisher's country -->
+    <div class="row mb-4">
+        <div class="col">
+            <div class="form-outline">
+                <select type="text" id="bookGenre" class="form-control" placeholder="Fantasy"
+                    formControlName="bookGenre" size=2>
+                    <option value={{genre}} *ngFor="let genre of genres">
+                        {{genre}}
+                    </option>
+                </select>
+                <label class="form-label" for="bookGenre" required>Genre</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <select type="text" id="bookType" class="form-control" placeholder="Fiction or Non-Fiction"
+                    formControlName="bookType">
+                    <option value={{type}} *ngFor="let type of types">
+                        {{type}}
+                    </option>
+                </select>
+                <label class="form-label" for="bookType" required>Book Type</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="text" id="publisherCountry" class="form-control" placeholder="UK"
+                    formControlName="publisherCountry" />
+                <label class="form-label" for="publisherCountry" required>Publisher's Country</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+    <div class="row mb-4">
+        <div class="col">
+            <div class="form-outline">
+                <input type="number" max={{currentYear}} id="yearPublished" class="form-control"
+                    placeholder="Max {{currentYear}}" formControlName="yearPublished" />
+                <label class="form-label form-" for="yearPublished" required>Year Published</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="number" min="1" max="10" id="bookRating" class="form-control" placeholder="1-10"
+                    formControlName="bookRating" />
+                <label class="form-label" for="bookRating" required>Rating</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="number" id="pageCount" class="form-control" formControlName="pageCount" />
+                <label class="form-label" for="pageCount" required>Page Count</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="number" id="bookCopies" class="form-control" formControlName="bookCopies" />
+                <label class="form-label" for="bookCopies" required>Copies Available</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!form.valid">Add Book</button>
+</form>
