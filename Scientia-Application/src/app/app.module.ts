@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { SharedService } from './shared.service';
+import { CreateBookComponent } from './create-book/create-book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    CatalogueComponent
+    CatalogueComponent,
+    CreateBookComponent
   ],
   imports: [
     BrowserModule,

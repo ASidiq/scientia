@@ -18,9 +18,11 @@
                             Services
                         </a>
                         <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" [routerLinkActive]="['link-active']"
+                                [routerLink]="['/addbook']">Add Book</a>
                             <a class="dropdown-item" [routerLinkActive]="['link-active']" [routerLink]="['/catalogue']">
                                 View Catalogue</a>
-                            <a class="dropdown-item" href="#">Add Book</a>
+                            <a class="dropdown-item" href="#">View Authors</a>
                         </div>
                     </li>
                 </ul>
