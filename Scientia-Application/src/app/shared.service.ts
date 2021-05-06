@@ -24,8 +24,8 @@ export class SharedService {
     return this.http.post(this.APIUrl + '/books', bookDetails);
   }
 
-  updateBook(bookID: number) {
-    return this.http.put(this.APIUrl + '/books', bookID);
+  updateBook(bookDetails: any, bookID: number) {
+    return this.http.put(this.APIUrl + '/books/' + bookID, bookDetails);
   }
 
   deleteBook(title: string) {
