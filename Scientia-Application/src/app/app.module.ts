@@ -12,6 +12,7 @@ import { SharedService } from './shared.service';
 import { CreateBookComponent } from './create-book/create-book.component';
 import { UpdateDeleteBookComponent } from './update-delete-book/update-delete-book.component';
 import { ViewAuthorComponent } from './view-author/view-author.component';
+import { UpdateDeleteAuthorComponent } from './update-delete-author/update-delete-author.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ViewAuthorComponent } from './view-author/view-author.component';
     CatalogueComponent,
     CreateBookComponent,
     UpdateDeleteBookComponent,
-    ViewAuthorComponent
+    ViewAuthorComponent,
+    UpdateDeleteAuthorComponent
   ],
   imports: [
     BrowserModule,
