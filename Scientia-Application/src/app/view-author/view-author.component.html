@@ -23,31 +23,24 @@
                     <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"
                         scope="row">{{el.id}} </th>
                     <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
-                        <img src={{el.cover}} alt="{{el.title}} Book Cover" width="100">
+                        <img src={{el.photo}} alt="{{el.title}} Profile Cover" width="150">
                     </td>
                     <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
-                        <a [routerLink]="['/update-delete-book']" [state]="{ data: el}">{{el.title}}</a>
+                        <a [routerLink]="['/']" [state]="{ data: el}">{{el.author}}</a>
                     </td>
                     <td *ngIf=" i+1>= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
-                        {{el.author}}
+                        <div *ngFor="let book of el.books">
+                            <li>
+                                {{book.Title}}
+                            </li>
+                        </div>
+
                     </td>
-                    <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
-                        {{el.date}}</td>
-                    <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
-                        {{el.type}}</td>
-                    <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
-                        {{el.genre}}</td>
-                    <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
-                        {{el.rating}}</td>
-                    <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
-                        {{el.pages}}</td>
-                    <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
-                        {{el.copies}}</td>
                 </tr>
             </tbody>
             <tfoot class="grey lighten-5 w-100">
                 <tr>
-                    <td colspan="10">
+                    <td colspan="4">
                         <mdb-table-pagination [tableEl]="tableEl" paginationAlign="" [searchDataSource]="elements">
                         </mdb-table-pagination>
                     </td>
