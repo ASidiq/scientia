@@ -20,8 +20,6 @@ export class CatalogueComponent implements OnInit, AfterViewInit {
 
   maxVisibleItems: number = 15;
 
-  url: string = 'https://jsonplaceholder.typicode.com/posts';
-  readonly APIUrl: string = 'https://localhost:5001/api';
 
   constructor(private cdRef: ChangeDetectorRef, private service: SharedService) { }
 
@@ -48,6 +46,7 @@ export class CatalogueComponent implements OnInit, AfterViewInit {
           genre: el.Genre,
           rating: el.Rating.toString(),
           pages: el.TotalPages.toString(),
+          location: el.Location,
           copies: el.Copies.toString()
         });
       });

@@ -7,7 +7,8 @@
                 <label for="search-input">Search</label>
             </div>
         </div>
-        <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" striped="true" class="z-depth-1">
+        <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" striped="true"
+            class="z-depth-1 colorFields">
             <thead class="sticky-top">
                 <tr>
                     <th *ngFor="let head of headElements; let i = index" [mdbTableSort]="elements"
@@ -25,9 +26,11 @@
                         <img src={{el.cover}} alt="{{el.title}} Book Cover" width="100">
                     </td>
                     <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
-                        {{el.title}}</td>
-                    <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
-                        {{el.author}}</td>
+                        <a [routerLink]="['/update-delete-book']" [state]="{ data: el}">{{el.title}}</a>
+                    </td>
+                    <td *ngIf=" i+1>= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
+                        <a href="#">{{el.author}}</a>
+                    </td>
                     <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
                         {{el.date}}</td>
                     <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
@@ -53,6 +56,3 @@
         </table>
     </div>
 </div>
-<!-- class="z-depth-1 table-fixed" -->
-<!-- th *ngFor="let head of headElements; let i = index" [mdbTableSort]="elements"
-[sortBy]="headElements[i]" scope="col" class="th-sm">{{head | titlecase}} <mdb-icon fas icon="sort"> -->

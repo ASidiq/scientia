@@ -10,13 +10,15 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { SharedService } from './shared.service';
 import { CreateBookComponent } from './create-book/create-book.component';
+import { UpdateDeleteBookComponent } from './update-delete-book/update-delete-book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     CatalogueComponent,
-    CreateBookComponent
+    CreateBookComponent,
+    UpdateDeleteBookComponent
   ],
   imports: [
     BrowserModule,
