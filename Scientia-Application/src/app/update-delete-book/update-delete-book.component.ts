@@ -48,6 +48,7 @@ export class UpdateDeleteBookComponent implements OnInit {
     if (confirm(`You want to delete ${this.form.value.title}`)) {
       this.service.deleteBook(this.form.value.title).subscribe(data => {
         alert(`${this.form.value.title} deleted!`)
+        this.router.navigate(['/catalogue']);
       })
     }
     else {
@@ -73,6 +74,7 @@ export class UpdateDeleteBookComponent implements OnInit {
           bookPictureUrl: this.form.value.bookCoverUrl
         }, Number(this.state.id)).subscribe(data => {
           alert("Book Updated!")
+          this.router.navigate(['/catalogue']);
           console.log("Book Updated")
         })
       })

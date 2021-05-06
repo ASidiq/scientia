@@ -26,7 +26,7 @@
                         <img src={{el.photo}} alt="{{el.title}} Profile Cover" width="150">
                     </td>
                     <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
-                        <a [routerLink]="['/']" [state]="{ data: el}">{{el.author}}</a>
+                        <a [routerLink]="['/update-delete-author']" [state]="{ data: el}">{{el.author}}</a>
                     </td>
                     <td *ngIf=" i+1>= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
                         <div *ngFor="let book of el.books">

@@ -1,0 +1,39 @@
+<table cellpadding="0" width="100%">
+    <tbody>
+        <tr>
+            <td>
+                <form [formGroup]="form" style="width: 700px; margin:0 auto">
+                    <!-- Text input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" id="name" class="form-control" placeholder="Author's Name"
+                            formControlName="name" />
+                        <label class="form-label" for="name" required>Author's Name</label>
+                    </div>
+                    <!-- Text input -->
+                    <div class="form-outline mb-4">
+                        <input type="url" id="authorProfilePicUrl" class="form-control"
+                            placeholder="Link to Author's Profile Pic" formControlName="authorProfilePicUrl" />
+                        <label class="form-label" for="authorProfilePicUrl" required>Author's Profile Picture's
+                            URL</label>
+                    </div>
+                    <!-- Submit button -->
+                    <div class="row mb-4">
+                        <div class="col">
+                            <button type="submit" (click)="onUpdateProfile()" class="btn btn-primary btn-block mb-4"
+                                [disabled]="!form.valid">Update Profile</button>
+                        </div>
+                        <div class="col">
+                            <button type="submit" (click)="onDeleteAuthor()" class="btn btn-danger btn-block mb-4"
+                                [disabled]="!form.valid">Delete Author</button>
+                        </div>
+                    </div>
+                </form>
+            </td>
+            <td class="borderClass" width="250" style="border-width: 0 1px 0 0;" valign="top">
+                <div style="width: 250px">
+                    <img src={{form.value.authorProfilePicUrl}} alt="{{state.title}} profile picture" width="200">
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

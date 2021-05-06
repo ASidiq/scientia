@@ -41,8 +41,8 @@ export class SharedService {
     return this.http.get<any>(this.APIUrl + `/authors/${title}`)
   }
 
-  updateAuthor(authorID: number) {
-    return this.http.put(this.APIUrl + '/authors', authorID);
+  updateAuthor(authorDetails: any, authorID: number) {
+    return this.http.put(this.APIUrl + '/authors/' + authorID, authorDetails);
   }
 
   deleteAuthor(title: string) {
