@@ -10,6 +10,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 using ScientiaWebAPI.Data;
+using ScientiaWebAPI.Interfaces;
+using ScientiaWebAPI.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +37,8 @@ namespace ScientiaWebAPI
                 c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
 
+            services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+
             //Keep JSON Serializer as our default
             services.AddControllers()
             .AddNewtonsoftJson(options =>
@@ -42,6 +46,8 @@ namespace ScientiaWebAPI
             .Json.ReferenceLoopHandling.Ignore)
             .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
                 = new DefaultContractResolver());
+
+            
 
             // Shows url as lowercase
             services.AddRouting(r => r.LowercaseUrls = true);

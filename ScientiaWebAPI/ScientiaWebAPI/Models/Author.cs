@@ -10,7 +10,7 @@ namespace ScientiaWebAPI.Models
         public int ID { get; set; }
 
         public string Name { get; set; }
-        
+
         public virtual List<Book> Books { get; set; }
 
         public string AuthorPicUrl { get; set; }

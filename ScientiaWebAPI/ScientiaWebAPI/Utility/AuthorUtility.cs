@@ -21,7 +21,7 @@ namespace ScientiaWebAPI.Utility
             return authorVM;
         }
 
-        public static List<AuthorViewModel> GetViewModels(this List<Author> authors)
+        public static List<AuthorViewModel> GetViewModels(this IEnumerable<Author> authors)
         {
             List<AuthorViewModel> allauthorVM = new List<AuthorViewModel>();
             foreach (Author author in authors)
