@@ -5,14 +5,47 @@
 
 trigger:
 - main
-      
-pool:
-  name: 'Scientia-Pool'
 
-variables:
-  buildConfiguration: 'Release'
+stages:
+  - stage: build
+    displayName: 'master-branch-build'
 
-steps:
-- script: dotnet build ScientiaWebAPI/ScientiaWebAPI/ScientiaWebAPI.csproj --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+    #build jobs
+    jobs:
+      - job: build
+        pool:
+          name: 'Scientia-Pool'
+          
+        variables:
+          buildConfiguration: 'Release'
+        steps:
+        - task: NuGetToolInstaller@1
+        - task: DotNetCoreCLI@2
+          inputs:
+            command: 'restore'
+            projects: 'ScientiaWebAPI/ScientiaWebAPI/ScientiaWebAPI.csproj'
+            feedsToUse: 'select' 
+        - task: DotNetCoreCLI@2
+          inputs:
+            command: 'build'
+            projects: 'ScientiaWebAPI/ScientiaWebAPI/ScientiaWebAPI.csproj'
+            arguments: '--configuration $(BuildConfiguration)'
+        - task: DotNetCoreCLI@2
+          inputs:
+            command: 'test'
+            projects: 'ScientiaWebAPI/ScientiaTest/ScientiaTest.csproj'
+            arguments: '--configuration $(buildConfiguration)'
+            testRunTitle: 'Test-CI- CD'
+        - task: DotNetCoreCLI@2
+          inputs:
+            command: 'publish'
+            publishWebProjects: false
+            projects: 'ScientiaWebAPI/ScientiaTest/ScientiaTest.csproj'
+            arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+            ArtifactName: 'drop'
+            publishLocation: 'Container'
+
 
