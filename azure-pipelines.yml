@@ -7,7 +7,7 @@ trigger:
 - main
       
 pool:
-  vmImage: 'Ubuntu-latest'
+  name: 'Scientia-Pool'
 
 variables:
   buildConfiguration: 'Release'
