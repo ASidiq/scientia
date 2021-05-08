@@ -22,4 +22,5 @@ namespace ScientiaWebAPI.Models
 
         public virtual Author Author { get; set; }
     }
+
 }

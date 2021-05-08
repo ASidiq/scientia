@@ -28,7 +28,7 @@ namespace ScientiaWebAPI.Utility
             return bookVM;
         }
 
-        public static List<BookViewModel> GetViewModels(this List<Book> books)
+        public static List<BookViewModel> GetViewModels(this IEnumerable<Book> books)
         {
             List<BookViewModel> allbookVM = new List<BookViewModel>();
             foreach (Book book in books)
