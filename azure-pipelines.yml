@@ -21,21 +21,29 @@ stages:
         steps:
         - task: NuGetToolInstaller@1
         - task: DotNetCoreCLI@2
+          displayName: 'Restoring'
           inputs:
             command: 'restore'
             projects: 'ScientiaWebAPI/ScientiaWebAPI/ScientiaWebAPI.csproj'
             feedsToUse: 'select' 
         - task: DotNetCoreCLI@2
+          displayName: 'Building'
           inputs:
             command: 'build'
             projects: 'ScientiaWebAPI/ScientiaWebAPI/ScientiaWebAPI.csproj'
             arguments: '--configuration $(BuildConfiguration)'
         - task: DotNetCoreCLI@2
+          displayName: 'dotnet test'
           inputs:
             command: 'test'
             projects: 'ScientiaWebAPI/ScientiaTest/ScientiaTest.csproj'
-            arguments: '--configuration $(buildConfiguration)'
+            arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
             testRunTitle: 'Test-CI- CD'
+        - task: PublishCodeCoverageResults@1
+          displayName: 'Publish code coverage report'
+          inputs:
+            codeCoverageTool: 'Cobertura'
+            summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
         - task: DotNetCoreCLI@2
           inputs:
             command: 'publish'
