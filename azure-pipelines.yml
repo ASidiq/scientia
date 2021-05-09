@@ -69,5 +69,12 @@ stages:
             downloadType: 'specific'
             itemPattern: '**/*.zip'
             downloadPath: '$(System.ArtifactsDirectory)'
+        - task: AzureRmWebAppDeployment@4
+          inputs:
+            ConnectionType: 'AzureRM'
+            azureSubscription: 'Avanade-Account-1'
+            appType: 'apiApp'
+            WebAppName: 'ScientiaAPI'
+            packageForLinux: '$(System.DefaultWorkingDirectory)/'
         
 
