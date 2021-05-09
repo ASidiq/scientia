@@ -55,5 +55,19 @@ stages:
             PathtoPublish: '$(Build.ArtifactStagingDirectory)'
             ArtifactName: 'drop'
             publishLocation: 'Container'
-
+  - stage: release
+    displayName: 'deployment-release'
+    #release job
+    jobs: 
+      - job: release
+        pool:
+              name: 'Scientia-Pool'
+        steps:
+        - task: DownloadBuildArtifacts@0
+          inputs:
+            buildType: 'current'
+            downloadType: 'specific'
+            itemPattern: '**/*.zip'
+            downloadPath: '$(System.ArtifactsDirectory)'
+        
 
