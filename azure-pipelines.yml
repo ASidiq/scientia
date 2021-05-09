@@ -76,11 +76,7 @@ stages:
             appType: 'apiApp'
             WebAppName: 'ScientiaAPI'
             packageForLinux: '$(System.DefaultWorkingDirectory)/'
-  - stage: Build
-    displayName: 'Front-end Build'
-     #build jobs
-    jobs:
-      - job: build-frontend
+      - job: 'frontend-Build'
         pool:
           name: 'Scientia-Pool'  
         steps:
