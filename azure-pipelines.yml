@@ -88,8 +88,6 @@ stages:
             inputs:
               command: 'install'
               workingDir: './Scientia-Application/'
-              customRegistry: 'useFeed'
-              customFeed: '5a8fc142-4799-49e5-a9e8-12650631876f'
           - script: npm install -g @angular/cli
           - script: ng build --prod
             displayName: 'Building Angualr Project'
