@@ -91,5 +91,6 @@ stages:
           - script: npm install -g @angular/cli
           - script: ng build --prod
             displayName: 'Building Angualr Project'
+            workingDirectory: './Scientia-Application/src/app/'
 
 
