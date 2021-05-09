@@ -47,7 +47,7 @@ stages:
         - task: DotNetCoreCLI@2
           inputs:
             command: 'publish'
-            publishWebProjects: false
+            publishWebProjects: true
             projects: 'ScientiaWebAPI/ScientiaTest/ScientiaTest.csproj'
             arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
         - task: PublishBuildArtifacts@1
