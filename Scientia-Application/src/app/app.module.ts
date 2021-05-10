@@ -13,6 +13,7 @@ import { CreateBookComponent } from './create-book/create-book.component';
 import { UpdateDeleteBookComponent } from './update-delete-book/update-delete-book.component';
 import { ViewAuthorComponent } from './view-author/view-author.component';
 import { UpdateDeleteAuthorComponent } from './update-delete-author/update-delete-author.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UpdateDeleteAuthorComponent } from './update-delete-author/update-delet
     CreateBookComponent,
     UpdateDeleteBookComponent,
     ViewAuthorComponent,
-    UpdateDeleteAuthorComponent
+    UpdateDeleteAuthorComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
